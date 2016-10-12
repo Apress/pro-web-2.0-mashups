@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<title>Flickr JSON feed</title>
+		<script type="text/javascript">
+		//<![CDATA[
+
+			function jsonFlickrFeed (feed) {
+				var feed_div = document.getElementById("feed");
+				var feed_html = '<p>' + '<a href="' + feed.link+ '">' + feed.title + '</a>'+ '</p>';
+				for (x=0; x<feed.items.length; x++) {
+					feed_html += '<a href="' + feed.items[x].link + '">' + '<img ' + 'src="' + feed.items[x].media["m"] + '"' + ' alt="' + feed.items[x].title + '"' + '/>' + '</a>'+ '<br/>';
+				}
+				feed_div.innerHTML = feed_html;
+			}
+
+			function load() {
+				var head_element = document.getElementsByTagName("head")[0];
+				var newScript = document.createElement('script');
+				newScript.type = 'text/javascript';
+				newScript.src = 'http://api.flickr.com/services/feeds/photos_public.gne?tags=tree&format=json';
+				head_element.appendChild(newScript);
+			}
+		
+		 //]]>
+		</script>
+	</head>
+	<body onload="load()">
+		<div id="feed" />
+	</body>
+</html> 

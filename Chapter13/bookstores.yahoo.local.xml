@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Result id="1000014156" xmlns="urn:yahoo:travel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="unknown">
+  <Title>bookstores around Berkeley</Title>
+  <Description>some of my favorite bookstores around Berkeley.</Description>
+  <CreatedTime>2006-10-24 13:29:40</CreatedTime>
+  <Username>Raymond Yee</Username>
+  <CommentCount>0</CommentCount>
+  <Item>
+    <Address>
+      <Address1>2476 Telegraph Ave</Address1>
+      <Address2 />
+      <City>Berkeley</City>
+      <State>CA</State>
+      <PostalCode>94704</PostalCode>
+    </Address>
+    <id>21518795</id>
+    <Title>Moe&apos;s Books</Title>
+    <CreatedTime>2006-10-24 13:29:41</CreatedTime>
+    <Description>* The Bay Area&apos;s Largest Selection of Used Scholarly Books</Description>
+    <Url>http://local.yahoo.com/details?id=21518795&amp;stx=&amp;csz=Berkeley+CA&amp;ed=xoDOxa160SyYoswS6OvDhQk64pj4Q8RHG5PQhcSqprzxVT6mDHMezwfQ2U244pugG4LDSdibA78iSw--</Url>
+    <type>Retail Shopping</type>
+    <Category>Used &amp; Rare Bookstores</Category>
+    <Photo />
+    <Tag />
+    <Phone>(510) 849-2087</Phone>
+  </Item>
+  <Item>
+    <Address>
+      <Address1>1730 4th St</Address1>
+      <Address2 />
+      <City>Berkeley</City>
+      <State>CA</State>
+      <PostalCode>94710</PostalCode>
+    </Address>
+    <id>21512172</id>
+    <Title>Cody&apos;s Books</Title>
+    <CreatedTime>2006-10-24 14:07:28</CreatedTime>
+    <Description />
+    <Url>http://local.yahoo.com/details?id=21512172&amp;stx=&amp;csz=Berkeley+CA&amp;ed=3uqWba160SzFEqntYzu46yunejqBEmJnCBEi_I7QbD68sZTEVRYl4WkOGEf6alVIaEB3</Url>
+    <type>Retail Shopping</type>
+    <Category>Bookstores</Category>
+    <Photo />
+    <Tag />
+    <Phone>(510) 559-9500</Phone>
+  </Item>
+  <Item>
+    <Address>
+      <Address1>6060 El Cerrito Plz</Address1>
+      <Address2 />
+      <City>El Cerrito</City>
+      <State>CA</State>
+      <PostalCode>94530</PostalCode>
+    </Address>
+    <id>21414999</id>
+    <Title>Barnes &amp; Noble Booksellers</Title>
+    <CreatedTime>2006-10-24 14:07:56</CreatedTime>
+    <Description />
+    <Url>http://local.yahoo.com/details?id=21414999&amp;stx=&amp;csz=El+Cerrito+CA&amp;ed=Fo51gq160Sy24fPx_u7IvyZen3kxQq5wR9ZOi_Aos2J.pPlJ75D_th3K2MHtNCWF_V5k_n0q62ssy3I-</Url>
+    <type>Retail Shopping</type>
+    <Category>Bookstores</Category>
+    <Photo />
+    <Tag />
+    <Phone>(510) 524-0087</Phone>
+  </Item>
+</Result><!-- e3.travel.re3.yahoo.com uncompressed/chunked Thu Aug 30 06:28:51 PDT 2007 -->
+<!-- ws02.search.re2.yahoo.com uncompressed/chunked Thu Aug 30 06:28:51 PDT 2007 -->

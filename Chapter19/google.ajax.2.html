@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>google.ajax.2.html</title>
+    <link href="http://www.google.com/uds/css/gsearch.css" type="text/css" rel="stylesheet"/>
+    <script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0&amp;key=[KEY]" type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function KeepHandler(result) {
+      // clone the result html node
+      var node = result.html.cloneNode(true);
+
+      // attach it
+      var savedResults = document.getElementById("saved_results");
+      savedResults.appendChild(node);
+
+      // extract some info from the result to show to get at the individual attributes.
+      // see http://code.google.com/apis/ajaxsearch/documentation/reference.html#_class_GwebResult
+      var title = result.title;
+      var unformattedtitle = result.titleNoFormatting;
+      var content = result.content;
+      var unescapedUrl = result.unescapedUrl;
+      alert("Saving " + unformattedtitle + " " + unescapedUrl + " " + content);
+    }
+
+
+    function OnLoad() {
+      // Create a search control
+      var searchControl = new GSearchControl();
+
+      // attach a handler for saving search results
+      searchControl.setOnKeepCallback(this, KeepHandler);
+
+      // expose the control to manipulation by the JavaScript shell and Firebug.
+      window.searchControl = searchControl
+
+      // Add in the web searcher
+      searchControl.addSearcher(new GwebSearch());
+
+      // Tell the searcher to draw itself and tell it where to attach
+      searchControl.draw(document.getElementById("search_control"));
+
+      // Execute an inital search
+      searchControl.execute("flower");
+    }
+    GSearch.setOnLoadCallback(OnLoad);
+
+    //]]>
+    </script>
+  </head>
+  <body>
+    <div id="search_control"></div>
+    <div id="saved_div"><span>Saved Search Results:</span><div id="saved_results"></div></div>
+  </body>
+</html> 

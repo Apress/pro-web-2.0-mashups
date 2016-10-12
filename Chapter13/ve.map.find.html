@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>VE Map showing VEMap.Find (ve.map.find.html)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://dev.virtualearth.net/mapcontrol/v5/mapcontrol.js"></script>
+    <script>
+    var map = null;
+
+    function onFoundResults (ShapeLayer,FindResult,Place,HasMore) {
+      html = "";
+      //alert("Place: " + Place);
+      for (x=0; x<Place.length; x++) {
+        html = html + Place[x].LatLong + "";
+      }
+      alert (html);
+    }
+
+    function GetMap()
+    {
+       map = new VEMap('myMap');
+       map.LoadMap();
+
+       address = "2855 Telegraph Ave., Berkeley, CA";
+       map.Find(null,address,null,null,null,null,null,null,null,null, onFoundResults);
+    }
+    </script>
+  </head>
+  <body onload="GetMap();">
+    <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
+  </body>
+</html>
+

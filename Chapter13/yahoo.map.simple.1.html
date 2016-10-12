@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.0&appid=<API_KEY>"></script>
+    <style type="text/css">
+      #mapContainer {
+      height: 500px;
+      width: 80%;
+      }
+    </style>
+  </head>
+<body>
+  <div id="mapContainer"></div>
+  <script type="text/javascript">
+    // Create a lat/lon object
+    var myPoint = new YGeoPoint(37.4041960114344,-122.008194923401);
+    // Create a map object
+    var map = new YMap(document.getElementById('mapContainer'));
+    // Display the map centered on a latitude and longitude
+    map.drawZoomAndCenter(myPoint, 3);
+
+    // Add map type control
+    map.addTypeControl();
+
+    // Set map type to either of: YAHOO_MAP_SAT YAHOO_MAP_HYB YAHOO_MAP_REG
+    map.setMapType(YAHOO_MAP_SAT);
+
+    //Get valid map types, returns array [YAHOO_MAP_REG, YAHOO_MAP_SAT, YAHOO_MAP_HYB]
+    var myMapTypes = map.getMapTypes();
+  </script>
+
+</body>
+</html>

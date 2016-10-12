@@ -1,0 +1,21 @@
+<html>
+   <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <script src="http://dev.virtualearth.net/mapcontrol/v5/mapcontrol.js"></script>
+      <script>
+      var map = null;
+
+      function GetMap()
+      {
+         map = new VEMap('myMap');
+         map.LoadMap();
+      }
+      </script>
+   </head>
+   <body onload="GetMap();">
+
+      <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
+   </body>
+</html>
+      

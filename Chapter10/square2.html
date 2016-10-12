@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Squaring the input(square2.html)</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+     function calc_square() {
+         var n = document.forms[0].num.value;
+         document.getElementById('answer').innerHTML = n*n;
+      }
+    //]]>
+    </script>
+    <form action="#" onsubmit="calc_square(); return false;">
+      <label>Input a number:</label><input type="text" size="5" name="num" value="0" />
+      <input type="submit" value="Square it!" />
+    </form>
+    <p>The square of the input is: <span id="answer">0</span></p>
+    <script type="text/javascript">
+    //<![CDATA[    
+      document.forms[0].num.onchange = calc_square;  //register an event
+    //]]>
+    </script>    
+  </body>
+</html> 

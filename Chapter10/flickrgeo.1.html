@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>flickrgeo.1.html</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+    function get_pictures() {
+    // flickrgeo.php?tags=flower&lat0=-90&lon0=-180&lat1=90&lon1=180&page=1&per_page=10&o_format=json
+      var s = "";
+      f = document.forms[0].getElementsByTagName('input'); // get all input fields
+      for (i = 0; i < f.length; i++)
+        if (i < f.length - 1) {
+          s = s + f[i].name + "=" + escape(f[i].value) + "&amp;";
+        } else {
+          s = s + f[i].name + "=" + escape(f[i].value);
+        }
+      var url = "flickrgeo.php?" + s + "&o_format=json";
+      document.getElementById('pics').innerHTML = "<a href=" + url + ">URL</a>";
+    }
+    //]]>
+    </script>
+    <form action="#" onsubmit="get_pictures(); return false;">
+<label>Search for photos with the following tag:</label>
+<input type="text" size="20" name="tags" value="flower" /><label> located at: lat0,lon0,lat1,lon1:</label>
+<input type="text" size="10" name="lat0" value="-90.0" />
+<input type="text" size="10" name="lon0" value="-180.0" />
+<input type="text" size="10" name="lat1" value="90.0" />
+<input type="text" size="10" name="lon1" value="180.0" />
+<label>at page</label><input type="text" size="4" name="page" value="1" /><label>with</label>
+<input type="text" size="3" name="per_page" value="1" /><label> per page.</label>
+<button type="submit">Go!</button>
+    </form>
+    <div id="pics"></div>
+  </body>
+</html> 

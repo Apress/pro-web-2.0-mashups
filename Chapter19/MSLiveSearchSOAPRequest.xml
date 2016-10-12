@@ -1,0 +1,34 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAP-ENV:Body>
+    <m:Search xmlns:m="http://schemas.microsoft.com/MSNSearch/2005/09/fex">
+      <m:Request>
+        <m:AppID>String</m:AppID>
+        <m:Query>String</m:Query>
+        <m:CultureInfo>String</m:CultureInfo>
+        <m:SafeSearch>Moderate</m:SafeSearch>
+        <m:Flags>None</m:Flags>
+        <m:Location>
+          <m:Latitude>3.14159265358979E0</m:Latitude>
+          <m:Longitude>3.14159265358979E0</m:Longitude>
+          <m:Radius>3.14159265358979E0</m:Radius>
+        </m:Location>
+        <m:Requests>
+          <m:SourceRequest>
+            <m:Source>Web</m:Source>
+            <m:Offset>0</m:Offset>
+            <m:Count>0</m:Count>
+            <m:FileType>String</m:FileType>
+            <m:SortBy>Default</m:SortBy>
+            <m:ResultFields>All</m:ResultFields>
+            <m:SearchTagFilters>
+              <m:string>String</m:string>
+            </m:SearchTagFilters>
+          </m:SourceRequest>
+        </m:Requests>
+      </m:Request>
+    </m:Search>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

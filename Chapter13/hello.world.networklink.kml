@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <kml xmlns="http://earth.google.com/kml/2.2">
+   <NetworkLink>
+     <flyToView>0</flyToView>
+     <name>Hello World</name>
+     <open>1</open>
+     <visibility>1</visibility>
+     <Link>
+       <href>http://examples.mashupguide.net/ch13/hello.world.networklink.php</href>
+       <viewRefreshMode>onStop</viewRefreshMode>
+       <viewRefreshTime>2</viewRefreshTime>
+       <viewFormat>bboxWest=[bboxWest]&amp;bboxSouth=[bboxSouth]&amp;bboxEast=[bboxEast]&amp;bboxNorth=[bboxNorth]&amp;lookatLon=[lookatLon]&amp;lookatLat=[lookatLat]&amp;lookatRange=[lookatRange]&amp;lookatTilt=[lookatTilt]&amp;lookatHeading=[lookatHeading]&amp;lookatTerrainLon=[lookatTerrainLon]&amp;lookatTerrainLat=[lookatTerrainLat]&amp;lookatTerrainAlt=[lookatTerrainAlt]&amp;cameraLon=[cameraLon]&amp;cameraLat=[cameraLat]&amp;cameraAlt=[cameraAlt]&amp;horizFov=[horizFov]&amp;vertFov=[vertFov]&amp;horizPixels=[horizPixels]&amp;vertPixels=[vertPixels]&amp;terrainEnabled=[terrainEnabled]</viewFormat>
+     </Link>
+   </NetworkLink>
+ </kml>

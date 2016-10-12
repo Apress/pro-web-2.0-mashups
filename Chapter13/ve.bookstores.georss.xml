@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:georss="http://www.georss.org/georss"
+  xmlns:gml="http://www.opengis.net/gml" xmlns:Cml2GeoRssHelper="urn:Cml2GeoRssHelper">
+  <channel>
+    <title>Bookstores around Berkeley</title>
+    <description>An example for mashupguide.net</description>
+    <link>http://local.live.com/?v=2&amp;cid=74B8FFD299EDD840!106</link>
+    <pubDate>Wed, 29 Aug 2007 23:32:51 GMT</pubDate>
+    <item>
+      <title>Moe's Books</title>
+      <link>http://local.live.com/?v=2&amp;cid=74B8FFD299EDD840!106</link>
+      <guid>74B8FFD299EDD840!128</guid>
+      <pubDate>Wed, 29 Aug 2007 23:32:18 GMT</pubDate>
+      <description>
+     &lt;div style="padding:4px;"&gt;	2476 Telegraph Ave, Berkeley, CA  &lt;/div&gt; &lt;br/&gt;
+  </description>
+      <georss:point>37.865523 -122.258492</georss:point>
+    </item>
+    <item>
+      <title>Barnes &amp; Noble Booksellers</title>
+      <link>http://local.live.com/?v=2&amp;cid=74B8FFD299EDD840!106</link>
+      <guid>74B8FFD299EDD840!112</guid>
+      <pubDate>Sat, 06 Jan 2007 16:47:10 GMT</pubDate>
+      <description>
+     &lt;div style="padding:4px;"&gt;	6060 El Cerrito Plz, El Cerrito, CA &lt;/div&gt; &lt;br/&gt;
+  </description>
+      <georss:point>37.899299 -122.300926</georss:point>
+    </item>
+    <item>
+      <title>Cody's Books</title>
+      <link>http://local.live.com/?v=2&amp;cid=74B8FFD299EDD840!106</link>
+      <guid>74B8FFD299EDD840!107</guid>
+      <pubDate>Wed, 25 Oct 2006 01:27:14 GMT</pubDate>
+      <description>
+     &lt;div style="padding:4px;"&gt;	1730 4th St, Berkeley, CA 94710 &lt;/div&gt; &lt;br/&gt;
+  </description>
+      <georss:point>37.870975 -122.301021</georss:point>
+    </item>
+  </channel>
+</rss>

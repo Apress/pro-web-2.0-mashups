@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Direct connect</title>
+    <script type="text/javascript" src="/lib/yui/build/yahoo/yahoo.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/event/event.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/connection/connection.js"></script>
+  </head>
+<body>
+  <div id="status"></div>
+  <script>
+
+
+    div = document.getElementById('status');
+
+    var handleSuccess = function(o){
+
+      function parseHeaders(headerStr){
+
+        var headers = headerStr.split("\n");
+        for(var i=0; i < headers.length; i++){
+          var delimitPos = headers[i].indexOf(':');
+          if(delimitPos != -1){
+            headers[i] = "<p>" +
+            headers[i].substring(0,delimitPos) + ":"+
+            headers[i].substring(delimitPos+1) + "</p>";
+          }
+        return headers;
+        }
+      }
+
+      if(o.responseText !== undefined){
+        div.innerHTML = "Transaction id: " + o.tId;
+        div.innerHTML += "HTTP status: " + o.status;
+        div.innerHTML += "Status code message: " + o.statusText;
+        div.innerHTML += "HTTP headers: " + parseHeaders(o.getAllResponseHeaders);
+        div.innerHTML += "Server response: " + o.responseText;
+        div.innerHTML += "Argument object: property foo = " + o.argument.foo +
+                 "and property bar = " + o.argument.bar;
+      }
+
+   }
+
+    var handleFailure = function(o){
+      if(o.responseText !== undefined){
+        div.innerHTML = "<li>Transaction id: " + o.tId + "</li>";
+        div.innerHTML += "<li>HTTP status: " + o.status + "</li>";
+        div.innerHTML += "<li>Status code message: " + o.statusText + "</li>";
+      }
+    }
+
+    var callback =
+    {
+      success:handleSuccess, failure: handleFailure, argument: { foo:"foo", bar:"bar" }
+    };
+
+    var sUrl = "http://xml.weather.yahoo.com/forecastrss?p=94720";
+    var request = YAHOO.util.Connect.asyncRequest('GET', sUrl, callback);
+  </script>
+  <div id="status"></div>
+</body>
+</html> 

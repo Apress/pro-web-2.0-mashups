@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Flickr Geotagged Photos"
+                description="Show Flickr photos"
+                author="Raymond Yee"
+                author_email="raymondyee@mashupguide.net"
+                height="150">
+  <Require feature="sharedmap"/>
+</ModulePrefs>
+<Content type="html"><![CDATA[
+
+<script>
+
+  var map = new GMap2();
+  var border = null;
+
+function genPhotoLink(photo) {
+
+    var t_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+    var p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+
+    return '<a href="' + p_url + '">' + '<img alt="'+ photo.title + '"src="' + t_url + '"/>' + '</a>';
+}
+
+// Creates a marker at the given point with the given msg.
+
+function createMarker(point, msg) {
+  var marker = new GMarker(point);
+  GEvent.addListener(marker, "click", function() {
+    marker.openInfoWindowHtml(msg);
+  });
+  return marker;
+}
+
+function createMarkerAndDiv (point,msg) {
+
+
+    var marker, e, anchors, alink
+
+    marker = createMarker(point, msg);
+    e = document.createElement("div");
+    
+    e.innerHTML = msg +  "<a href='#'>Show</a><br>"
+    anchors = e.getElementsByTagName('a')
+    alink = anchors[anchors.length-1];
+    alink.onclick = function(){marker.openInfoWindowHtml(msg);}
+    
+    return [marker,e];
+
+}
+
+function cb(s) {
+
+    var rsp = eval('(' + s + ')');
+    var marker, e
+    
+    // clear the photos
+    map.clearOverlays();
+    
+    // add border
+    map.addOverlay(border);
+    
+    var pdiv = document.getElementById("pictures");
+    pdiv.innerHTML = "Total number available is: " + rsp.photos.total + "<br/>";;
+    
+    // put the pictures on the map
+    for (var i=0; i < rsp.photos.photo.length; i++) {
+        var photo = rsp.photos.photo[i];
+
+        var point = new GLatLng (photo.latitude, photo.longitude);
+        var msg = photo.title + "<br>" + genPhotoLink(photo);
+        
+        md =  createMarkerAndDiv(point,msg);
+        marker = md[0];
+        e=md[1];
+
+        map.addOverlay(marker); 
+        pdiv.appendChild(e);
+ 
+    }
+
+}
+
+function get_pictures() {
+
+    var API_KEY = "e81ef8102a5160154ef4662adcc9046b";
+    fForm = document.getElementById('FlickrForm');
+    
+    map.getBoundsAsync(function(bounds) {
+      var lat0 = bounds.getSouthWest().lat();
+      var lon0 = bounds.getSouthWest().lng();
+      var lat1 = bounds.getNorthEast().lat();
+      var lon1 = bounds.getNorthEast().lng();
+      
+      // add polyline to mark the search boundaries
+       border  = new GPolygon([
+  		  new GLatLng(lat0, lon0),
+  		  new GLatLng(lat1, lon0),
+  		  new GLatLng(lat1, lon1),
+  		  new GLatLng(lat0,lon1),
+  		  new GLatLng(lat0,lon0)
+		], "#ff0000", 2);
+	
+      
+      var url = "http://api.flickr.com/services/rest/?method=flickr.photos.search" + 
+    "&api_key=" + API_KEY +
+    "&bbox=" + lon0 + "%2C" + lat0 + "%2C" + lon1 + "%2C" + lat1  +
+    "&per_page=" + fForm.per_page.value +
+    "&page=" + fForm.page.value +
+    "&format=json&nojsoncallback=1&extras=geo";
+    
+    var tagValue = fForm.tag.value;
+    // search by tag only if the box is not blank.
+    if (tagValue.length) {
+      url = url + "&tags=" + fForm.tag.value;
+    } else {
+      url = url + "&min_upload_date=820483200";
+    }
+     
+    _IG_FetchContent(url, cb);      
+      
+      } //anonymous function
+    
+    ); //map.getBoundsAsync
+    
+} //get_pictures
+
+</script>
+
+<form action="#" onsubmit="get_pictures(); return false;" id="FlickrForm">
+    <p>Search for photos with the following tag:
+    <input type="text" size="20" name="tag" value="flower"> 
+    at page <input type="text" size="4" name="page" value="1"> with
+    <input type="text" size="3" name="per_page" value="10"> per page.
+    <button type="submit">Go!</button></p>
+</form>
+<div id="pictures"></div>
+
+
+
+
+]]></Content>
+</Module>

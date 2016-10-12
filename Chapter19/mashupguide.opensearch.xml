@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <!-- Created on Sun, 17 Jun 2007 17:08:21 GMT -->
+  <ShortName>MashupGuide.net</ShortName>
+  <Description>Search for info about mashups</Description>
+  <Url type="text/html" method="get"
+    template="http://blog.mashupguide.net/?s={searchTerms}&amp;searchsubmit=Find"/>
+  <Image width="16" height="16"
+    >http://mycroft.mozdev.org/updateos.php/id0/orangeremix.png</Image>
+  <Developer>Raymond Yee</Developer>
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>http://blog.mashupguide.net/</moz:SearchForm>
+  <moz:UpdateUrl>http://mycroft.mozdev.org/updateos.php/id0/orangeremix.xml</moz:UpdateUrl>
+  <moz:IconUpdateUrl>http://mycroft.mozdev.org/updateos.php/id0/orangeremix.png</moz:IconUpdateUrl>
+  <moz:UpdateInterval>7</moz:UpdateInterval>
+</OpenSearchDescription>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+  <Folder>
+    <name>Campanile and Evans Hall, UC Berkeley</name>
+    <description><![CDATA[This file illustrates the use of <LookAt> and <Camera> in KML, using two buildings on the UC Berkeley campus.  The Campanile is almost due south of Evans Hall.  Note:  turn on 3D Warehouse layer to see the buildings in 3D in Google Earth.]]></description>
+    <LookAt>
+      <longitude>-122.257704</longitude>
+      <latitude>37.8721</latitude>
+      <altitude>0</altitude>
+      <altitudeMode>relativeToGround</altitudeMode>
+      <range>1000</range>
+      <tilt>0</tilt>
+      <heading>0</heading>
+    </LookAt>
+    <Placemark id="Campanile">
+      <name>Campanile</name>
+      <description><![CDATA[Campanile viewed from the south, using  <LookAt> (range=200, tilt=45, heading=0)]]></description>
+      <LookAt>
+        <longitude>-122.257704</longitude>
+        <latitude>37.8721</latitude>
+        <altitude>0</altitude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <range>200</range>
+        <tilt>45</tilt>
+        <heading>0</heading>
+      </LookAt>
+      <Point>
+        <coordinates>-122.257704,37.8721,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="Evans">
+      <name>On the roof of  Evans Hall  Looking at Campanile</name>
+      <description><![CDATA[Looking south from Evans to Campanile, using <Camera>  (heading=180,  tilt=90, roll=0)]]></description>
+      <Camera>
+        <longitude>-122.2578687854004</longitude>
+        <latitude>37.87363451913904</latitude>
+        <altitude>50</altitude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <heading>180</heading>
+        <tilt>90</tilt>
+        <roll>0</roll>
+      </Camera>
+      <Point>
+        <coordinates>-122.2578687854004,37.87363451913904,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="Evans_Roll">
+      <name>On the roof of Evans Hall Looking at Campanile (with a Roll)</name>
+      <description><![CDATA[Looking south from Evans to Campanile, using <Camera>  (heading=180,  tilt=90, roll=45)]]></description>      
+      <Camera>
+        <longitude>-122.2578687854004</longitude>
+        <latitude>37.87363451913904</latitude>
+        <altitude>50</altitude>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <heading>180</heading>
+        <tilt>90</tilt>
+        <roll>45</roll>
+      </Camera>
+      <Point>
+        <coordinates>-122.2578687854004,37.87363451913904,0</coordinates>
+      </Point>
+    </Placemark>
+  </Folder>
+</kml>

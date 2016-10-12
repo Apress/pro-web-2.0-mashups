@@ -1,0 +1,21 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAP-ENV:Body>
+    <m:Search xmlns:m="http://schemas.microsoft.com/MSNSearch/2005/09/fex">
+      <m:Request>
+        <m:AppID>[YOURKEY]</m:AppID>
+        <m:Query>flower</m:Query>
+        <m:CultureInfo>en-US</m:CultureInfo>
+        <m:SafeSearch>Moderate</m:SafeSearch>
+        <m:Flags>None</m:Flags>
+        <m:Requests>
+          <m:SourceRequest>
+            <m:Source>Web</m:Source>
+          </m:SourceRequest>
+        </m:Requests>
+      </m:Request>
+    </m:Search>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>flickrgeo.3.html</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" src="/lib/yui/build/yahoo/yahoo.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/event/event.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/connection/connection.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function rspToHTML(rsp) {
+
+      var s = "";
+      // http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg
+      // http://www.flickr.com/photos/{user-id}/{photo-id}
+      s = "total number is: " + rsp.photos.photo.length + "<br/>";
+
+      for (var i=0; i < rsp.photos.photo.length; i++) {
+        photo = rsp.photos.photo[i];
+        t_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+        p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+        s +=  '<a href="' + p_url + '">' + '<img alt="'+ photo.title + '"src="' + t_url + '"/>' + '</a>';
+      }
+      return s;
+    }
+
+    var handleSuccess = function(o){
+
+      div = document.getElementById('pics');
+      div.innerHTML = "";  // blank out the div
+
+      if(o.responseText !== undefined){
+
+        div.innerHTML += "Server response: " + o.responseText + "<br/>";
+
+        window.response = o.responseText;  //let's deposit the response in a global variable so that we can look at it via the shell.
+        window.rsp = eval('(' + o.responseText + ')');
+        div.innerHTML = rspToHTML(window.rsp);
+      }
+
+   }
+
+    var handleFailure = function(o){
+      if(o.responseText !== undefined){
+          alert("failure");
+      }
+    }
+
+    var callback =
+    {
+      success:handleSuccess, failure: handleFailure, argument: {}
+    };
+
+
+
+    function get_pictures() {
+    // flickrgeo.php?tag=flower&lat0=-90&lon0=-180&lat1=90&lon1=180&page=1&per_page=10&o_format=json
+      var s = "";
+      f = document.forms[0].getElementsByTagName('input'); // get all input fields
+      for (i = 0; i < f.length; i++)
+        if (i < f.length - 1) {
+          s = s + f[i].name + "=" + escape(f[i].value) + "&";
+        } else {
+          s = s + f[i].name + "=" + escape(f[i].value);
+        }
+      var url = "flickrgeo.php?" + s + "&o_format=json";
+      var request = YAHOO.util.Connect.asyncRequest('GET', url, callback);
+    }
+    //]]>
+    </script>
+    <form action="#" onsubmit="get_pictures(); return false;">
+<label>Search for photos with the following tag:</label>
+<input type="text" size="20" name="tags" value="flower" /><label> located at: lat0,lon0,lat1,lon1:</label>
+<input type="text" size="10" name="lat0" value="-90.0" />
+<input type="text" size="10" name="lon0" value="-180.0" />
+<input type="text" size="10" name="lat1" value="90.0" />
+<input type="text" size="10" name="lon1" value="180.0" />
+<label>at page</label><input type="text" size="4" name="page" value="1" /><label>with</label>
+<input type="text" size="3" name="per_page" value="1" /><label> per page.</label>
+<button type="submit">Go!</button>
+    </form>
+    <div id="pics"></div>
+  </body>
+</html> 

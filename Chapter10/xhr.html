@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>xhr.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" >
+    <script type="text/javascript">
+    //<![CDATA[
+
+    
+// based on http://www.quirksmode.org/js/xmlhttp.html    
+
+  var XMLHttpFactories = [
+    function () {xhr = new XMLHttpRequest(); xhr.overrideMimeType('text/xml'); return xhr; },
+    function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+    function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+    function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+  ];
+
+
+  function getXmlHttpRequest() {
+    var xmlhttp = false;
+    for (var i=0;i<XMLHttpFactories.length;i++) {
+      try {
+        xmlhttp = XMLHttpFactories[i]();
+      }
+      catch (e) {
+        continue;
+      }
+      break;
+    }
+    return xmlhttp;
+  }
+
+    function writeResults() {
+
+      //alert(xmlhttp.readyState);
+
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        resultsDiv = document.getElementById('results');
+        //alert(xmlhttp.responseText);
+        var response = xmlhttp.responseXML;
+        resultsDiv.innerHTML = response.getElementsByTagName('description')[1].firstChild.nodeValue;
+      }
+
+    }
+
+
+    function load() {
+
+      // http://examples.mashupguide.net/ch10/weather.php?p=94720
+      xmlhttp = getXmlHttpRequest();
+      if (xmlhttp) {
+        zip = "94720";
+        url = "weather.php?p=" + zip;
+        xmlhttp.open('GET', url, true);
+        xmlhttp.onreadystatechange = writeResults;
+        xmlhttp.send(null);
+      }
+
+    }
+
+    //]]>
+    </script>
+  </head>
+  <body onload="load()" >
+  <!-- retrieve -->
+  <div id="results"></div>
+  </body>
+</html> 

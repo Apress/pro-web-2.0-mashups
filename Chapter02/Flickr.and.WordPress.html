@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Raymond Yee's Flickr and mashupguide weblog</title>
+		<script type="text/javascript">
+		//<![CDATA[
+
+		function reloadFrames() {
+
+		// get a handle to the iframes and the year and month in the form
+			var dateForm = document.getElementById('date');
+			var flickrFrame = document.getElementById('FlickrFrame');
+			var wpFrame = document.getElementById('WPFrame');
+
+			year = dateForm.year.value;
+			month = dateForm.month.value;
+			var year, month, dateForm;
+			var flickrURL = "http://www.flickr.com/photos/raymondyee/archives/date-taken/" + year + "/" + month + "/calendar";
+			var wpURL = "http://blog.mashupguide.net/" + year + "/" + month + "/";
+
+		//reset the URLs for the iframes
+			flickrFrame.src = flickrURL;
+			wpFrame.src = wpURL;
+
+			return false;
+
+		}
+
+		//]]>
+		</script>
+	</head>
+	<body>
+	<form id="date" action="#" onsubmit="return reloadFrames();">
+		Year: <input type="text" size="4" name="year" value="2007" />
+		Month: <input type="text" size="4" name="month" value="06" />
+		<input type="submit" value="Reload Frames" />
+	</form>
+	<iframe id="FlickrFrame" src="http://www.flickr.com/photos/raymondyee/archives/date-taken/2007/06/calendar/" name="Flickr" style="width:600px; height:500px; border: 0px"></iframe>
+	<iframe id="WPFrame" src="http://blog.mashupguide.net/2007/06/" name="WordPress" style="width:600px; height:500px; border: 0px" ></iframe>
+	</body>
+</html> 

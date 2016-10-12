@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>simple document</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<h1>geo</h1>
+<div class="geo">Tim Berner-Lee's location is:
+ <span class="latitude">42.3633690</span>,
+ <span class="longitude">-71.091796</span>.
+</div>
+<h1> fuller hCalendar</h1>
+<div class="vevent" id="hcalendar-WWW-2008-17th-International-World-Wide-Web-Conference">
+  <a class="url" href="http://www2008.org/">
+    <abbr class="dtstart" title="20080421">April 21th</abbr> &mdash;
+    <abbr class="dtend" title="20080426">25th, 2008</abbr>
+    <span class="summary">WWW 2008 (17th International World Wide Web Conference)</span>&mdash; at
+    <span class="location">Beijing International Convention Center, </span>
+  </a>
+  <div class="description">"The World Wide Web Conference is a global event bringing together key researchers, innovators, decision-makers, technologists, businesses, and standards bodies working to shape the Web. Since its inception in 1994, the WWW conference has become the annual venue for international discussions and debate on the future evolution of the Web."</div>
+  <p style="font-size: smaller;">This
+    <a href="http://microformats.org/wiki/hcalendar">hCalendar event</a> brought to you by the
+    <a href="http://microformats.org/code/hcalendar/creator">hCalendar Creator</a>.
+  </p>
+</div>
+<h1>minimal hCard</h1>
+<div class="vcard"><span class="fn">Sir Tim Berners-Lee</span></div>
+<h1>fuller hCard (with embedded adr)</h1>
+<div id="hcard-Tim-Berners-Lee" class="vcard">
+ <a class="url fn" href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a>
+ <div class="org">World Wide Web Consortium</div>
+ <div class="adr">
+  <div class="street-address">77 Massachusetts Ave.</div>
+  <!-- this extended-address is not actually from the hCard creator but inserted by hand -->
+  <div class="extended-address">(MIT Room 32-G524)</div>
+  <span class="locality">Cambridge</span>
+,
+  <span class="region">MA</span>
+,
+  <span class="postal-code">02139</span>
+
+  <span class="country-name">USA</span>
+
+ </div>
+ <div class="tel">+1 (617) 253 5702</div>
+<p style="font-size:smaller;">This <a href="http://microformats.org/wiki/hcard">hCard</a> created with the <a href="http://microformats.org/code/hcard/creator">hCard creator</a>.</p>
+</div>
+<h1>xfn</h1>
+<div>
+<a href="http://laurashefler.net/blog" rel="friend met colleague coresident spouse muse sweetheart">Laura Shefler</a>
+<br/>
+<a href="http://www.w3.org/People/Berners-Lee/" rel="contact">Tim Berners-Lee</a>
+</div>
+<h1>rel-license</h1>
+<div>
+<a href="http://creativecommons.org/licenses/by/3.0/" rel="license">cc by 3.0</a>
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
+</a>
+<br />This work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.
+</div>
+<h1>rel-tag</h1>
+<div>
+<a rel="tag" title="View all posts in Google Maps" href="http://blog.mashupguide.net/category/google-maps/">Google Maps</a>
+</div>
+<h1>xFolk</h1>
+<div class="xfolkentry">
+  <a class="taggedlink" href="http://www.w3.org/People/Berners-Lee/">Tim Berners-Lee</a>: <span class="description">The inventer of the WWW</span>
+  <a rel="tag" href="http://technorati.com/tag/WWW"></a>
+</div>
+<h1>include-pattern</h1>
+<div>
+<span class="vcard">
+ <span class="fn n" id="ryee-hcard">
+  <span class="given-name">Raymond</span> <span class="family-name">Yee</span>
+ </span>
+</span>
+</div>
+<div>
+<span class="vcard">
+ <a href="#ryee-hcard" class="include" title="Raymond Yee"></a>
+ <span class="org">UC Berkeley</span>
+ <span class="title">Alumnus</span>
+</span>
+</div>
+</body>
+</html>

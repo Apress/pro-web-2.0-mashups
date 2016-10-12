@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>gmapflickr2.html</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key= ABQIAAAAdjiS7YH6Pzk2Nrli02b5xxQ-P-Mzdsyh8crBqPZpxYetAr3WzhRxNyCv7dKjl0OibFrOZWLO4NUCIg"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+    function updateStatus() {
+      var div = document.getElementById('mapinfo');
+      div.innerHTML = map.getBounds();
+
+      document.forms[0].lat0.value = map.getBounds().getSouthWest().lat();
+      document.forms[0].lon0.value = map.getBounds().getSouthWest().lng();
+      document.forms[0].lat1.value = map.getBounds().getNorthEast().lat();
+      document.forms[0].lon1.value = map.getBounds().getNorthEast().lng();
+
+      get_pictures();
+
+    }
+
+    function onMapMove() {
+      //map.setCenter(map.getCenter());
+      updateStatus();
+    }
+
+    function onMapZoom(oldZoom, newZoom) {
+      //map.setCenter(map.getCenter(),newZoom)
+      updateStatus();
+    }
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+        window.map = map
+        map.setCenter(new GLatLng(37.872035,-122.257844), 13);
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        window.kh = new GKeyboardHandler(map);
+
+        GEvent.addListener(map,'moveend',onMapMove);
+        GEvent.addListener(map,'zoomend',onMapZoom);
+        updateStatus();
+      }
+    }
+
+    //]]>
+    </script>
+    <script type="text/javascript" src="/lib/yui/build/yahoo/yahoo.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/event/event.js"></script>
+    <script type="text/javascript" src="/lib/yui/build/connection/connection.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    function rspToHTML(rsp) {
+
+      var s = "";
+      // http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg
+      // http://www.flickr.com/photos/{user-id}/{photo-id}
+      s = "total number available is: " + rsp.photos.total + "<br/>";
+
+      for (var i=0; i < rsp.photos.photo.length; i++) {
+        photo = rsp.photos.photo[i];
+        t_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+        p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+        s +=  '<a href="' + p_url + '">' + '<img alt="'+ photo.title + '"src="' + t_url + '"/>' + '</a>';
+      }
+      return s;
+    }
+
+    var handleSuccess = function(o){
+
+      div = document.getElementById('pics');
+      div.innerHTML = "";  // blank out the div
+
+      if(o.responseText !== undefined){
+
+        div.innerHTML += "Server response: " + o.responseText + "<br/>";
+
+        window.response = o.responseText;  //let's deposit the response in a global variable so that we can look at it via the shell.
+        window.rsp = eval('(' + o.responseText + ')');
+        div.innerHTML = rspToHTML(window.rsp);
+      }
+
+   }
+
+    var handleFailure = function(o){
+      if(o.responseText !== undefined){
+          alert("failure");
+      }
+    }
+
+    var callback =
+    {
+      success:handleSuccess, failure: handleFailure, argument: {}
+    };
+
+    function get_pictures() {
+    // flickrgeo.php?tags=flower&lat0=-90&lon0=-180&lat1=90&lon1=180&page=1&per_page=10&o_format=json
+      var s = "";
+      f = document.forms[0].getElementsByTagName('input'); // get all input fields
+      for (i = 0; i < f.length; i++)
+        if (i < f.length - 1) {
+          s = s + f[i].name + "=" + escape(f[i].value) + "&";
+        } else {
+          s = s + f[i].name + "=" + escape(f[i].value);
+        }
+      var url = "flickrgeo.php?" + s + "&o_format=json";
+      var request = YAHOO.util.Connect.asyncRequest('GET', url, callback);
+      //document.getElementById('pics').innerHTML = "<a href=" + url + ">URL</a>";
+    }
+    //]]>
+    </script>
+  </head>
+
+  <body onload="load()" onunload="GUnload()">
+    <form action="#" onsubmit="get_pictures(); return false;">
+      <label>Search for photos with the following tag:</label>
+      <input type="text" size="20" name="tags" value="flower" /><label> located at: lat0,lon0,lat1,lon1:</label>
+      <input type="text" size="10" name="lat0" value="-90.0" />
+      <input type="text" size="10" name="lon0" value="-180.0" />
+      <input type="text" size="10" name="lat1" value="90.0" />
+      <input type="text" size="10" name="lon1" value="180.0" />
+      <label>at page</label><input type="text" size="4" name="page" value="1" /><label>with</label>
+      <input type="text" size="3" name="per_page" value="1" /><label> per page.</label>
+      <button type="submit">Go!</button>
+    </form>
+  <div id="pics"></div>
+  <div id="map" style="width: 800px; height: 600px"></div>
+  <div id="mapinfo"></div>
+  </body>
+</html>
+

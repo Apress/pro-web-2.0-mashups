@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=5"></script>
+    <script>
+       var map = null;
+       var layerid=1;
+
+       function GetMap()
+       {
+          map = new VEMap('myMap');
+          map.LoadMap();
+       }
+
+       function AddMyLayer(type)
+       {
+          var l = new VEShapeLayer();
+          var txtSource = document.getElementById('txtSource');
+          var veLayerSpec = new VEShapeSourceSpecification(type, txtSource.value, l);
+          map.ImportShapeLayerData(veLayerSpec, onFeedLoad);
+       }
+       function onFeedLoad(feed)
+       {
+          feed0 = feed;
+          alert('RSS or Collection loaded. There are '+feed.GetShapeCount()+' items in this list.');
+       }
+    </script>
+  </head>
+  <body onload="GetMap();">
+    <div id='myMap' style="position:relative; width:400px; height:400px;"></div>
+    <INPUT id="txtSource" type="text" value="flickr.geofeed.xml" name="txtSource">
+    <INPUT id="loadFeed" type="button" value="Load RSS" onclick="AddMyLayer(VEDataType.GeoRSS);">
+  </body>
+</html>

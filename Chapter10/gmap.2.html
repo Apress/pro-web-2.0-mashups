@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>gmap.2.html</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAdjiS7YH6Pzk2Nrli02b5xxQ-P-Mzdsyh8crBqPZpxYetAr3WzhRxNyCv7dKjl0OibFrOZWLO4NUCIg"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+    function updateStatus() {
+      var div = document.getElementById('mapinfo');
+      div.innerHTML = map.getBounds();
+      return (1);
+    }
+
+    function onMapMove() {
+      //map.setCenter(map.getCenter());
+      updateStatus();
+    }
+
+    function onMapZoom(oldZoom, newZoom) {
+      //map.setCenter(map.getCenter(),newZoom)
+      updateStatus();
+    }
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+        window.map = map;
+        map.setCenter(new GLatLng(37.872035,-122.257844), 13);
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        window.kh = new GKeyboardHandler(map);
+
+        GEvent.addListener(map,'moveend',onMapMove);
+        GEvent.addListener(map,'zoomend',onMapZoom);
+        updateStatus();
+      }
+    }
+
+    //]]>
+    </script>
+  </head>
+
+  <body onload="load()" onunload="GUnload()">
+    <div id="map" style="width: 800px; height: 600px"></div>
+    <div id="mapinfo"></div>
+  </body>
+</html>
+

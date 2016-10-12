@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<rss version="2.0">
+  <channel>
+    <title>Apress :: The Expert's Voice</title>
+    <link>http://www.apress.com/</link>
+    <description>Welcome to Apress.com. Books for Professionals, by Professionals(TM)...with what
+      the professional needs to know(TM)</description>
+    <item>
+      <title>Excel 2007: Beyond the Manual</title>
+      <link>http://www.apress.com/book/bookDisplay.html?bID=10232</link>
+      <description>&lt;p&gt;&lt;i&gt;Excel 2007: Beyond the Manual&lt;/i&gt;
+        will introduce those who are already familiar with Excel basics to more advanced features,
+        like consolidation, what-if analysis, PivotTables, sorting and filtering, and some commonly
+        used functions. You'll learn how to maximize your efficiency at producing
+        professional-looking spreadsheets and charts and become competent at analyzing data using a
+        variety of tools. The book includes practical examples to illustrate advanced
+        features.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Word 2007: Beyond the Manual</title>
+      <link>http://www.apress.com/book/bookDisplay.html?bID=10249</link>
+      <description>&lt;p&gt;&lt;i&gt;Word 2007: Beyond the Manual&lt;/i&gt;
+        focuses on new features of Word 2007 as well as older features that were once less
+        accessible than they are now. This book also makes a point to include examples of practical
+        applications for all the new features. The book assumes familiarity with Word 2003 or
+        earlier versions, so you can focus on becoming a confident 2007
+      user.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

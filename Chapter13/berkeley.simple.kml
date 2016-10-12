@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+  <Placemark id="berkeley">
+    <description>Berkeley, CA</description>
+    <name>Berkeley</name>
+    <Point>
+      <coordinates>-122.257704,37.8721,0</coordinates>
+    </Point>
+  </Placemark>
+</kml>

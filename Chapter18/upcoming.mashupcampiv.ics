@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:Upcoming Event: Mashup Camp IV
+PRODID:-//Upcoming.org/Upcoming ICS//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20070718T130000
+DTEND:20070718T140000
+RRULE:FREQ=DAILY;INTERVAL=1;UNTIL=20070720T000000
+TRANSP:TRANSPARENT
+SUMMARY:Mashup Camp IV
+DESCRIPTION: [Full details at http://upcoming.yahoo.com/event/144855/ ] From Mass Events Labs\, the organizers of the wildly successfully Mashup Camp unconferences\, comes Mashup Camp IV.  Back on the West Coast (the Computer History Museum in Mountain View\, CA)\, with the same great people\,  great conversations and discussions.  Same fun\, hacking\, and networking in an Open Space format.
+      Have a mashup you'd like to show off?  Enter it in the Best Mashup contest and see if you can survive the grueling SpeedGeeking session.  Event submitted by Eventful.com on behalf of chris_radcliff .
+URL;VALUE=URI:http://upcoming.yahoo.com/event/144855/
+UID:http://upcoming.yahoo.com/event/144855/
+DTSTAMP:20070125T124529
+LAST-UPDATED:20070125T124529
+CATEGORIES:Other
+ORGANIZER;CN=chris_radcliff:X-ADDR:http://upcoming.yahoo.com/user/19139/
+LOCATION;VENUE-UID="http://upcoming.yahoo.com/venue/259/":Computer History Museum @ 1401 N Shoreline Blvd.\, Mountain View\, California 94043 US
+END:VEVENT
+BEGIN:VVENUE
+X-VVENUE-INFO:http://evdb.com/docs/ical-venue/draft-norris-ical-venue.html
+NAME:Computer History Museum
+ADDRESS:1401 N Shoreline Blvd.
+CITY:Mountain View
+REGION;X-ABBREV=ca:California
+COUNTRY;X-ABBREV=us:United States
+POSTALCODE:94043
+GEO:37.4149;-122.078
+URL;X-LABEL=Venue Info:http://www.computerhistory.org/
+END:VVENUE
+END:VCALENDAR
